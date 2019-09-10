@@ -4,6 +4,51 @@ This week we’ll be looking at the basic building blocks of a UI - the views.  
 
 [View documentation](https://developer.android.com/reference/android/view/View)
 
+## Important View attributes
+
+Before we dive in to our specific views, we'll talk about Views in general.  Basically every UI component is a subclass of `View`.  We'll talk briefly about a few attributes in the View class that we'll see used *a lot*.
+
+#### ID
+
+The ID field is used to give a unique identifier to a View.  This is the primary way we can relate views to other views (e.x. with an ID of `@+id/view1`, we can reference it in `android:layout_below="@id/view1"`) and get references to Views (with `findViewById(R.id.<viewId>`)).
+
+#### Layout Width and Height
+
+These two attributes are actually **required** for every View and the compiler will display an error if you don't set them. These attributes control how big your views are, and can be set in three ways:
+
+- Setting a specific dimension e.x. `android:layout_width="16dp"`
+- Using the specified constants `match_parent` and `wrap_content` which will either make the View as big as the parent (`match_parent`) or will size the view to be just big enough to fit its content (`wrap_content`)
+- Setting to `0dp`; this is only used for `ConstraintLayout` and lets the layout match its constraints.  E.x. a view with `android:layout_width="0dp"` and vertical constraints of  `app:layout_constraintStart_toStartOf="parent"` and `app:layout_constraintEnd_toEndOf="parent"` will take up the entire width of its parent (this is essentially the same as `match_parent` in this instance)
+
+#### Margin and Padding
+
+Those of you familiar with the CSS box model will already know what these terms mean, but we'll go over them quickly.
+
+**Margin** relates to the space outside a View, and is used via one of five attributes:`layout_margin` will set all four sides of the View with the same margin, while `layout_marginStart`, `layout_marginEnd`, `layout_marginTop` and `layout_marginBottom` will set their respective sides
+
+E.x. a View with `android:layout_marginStart="8dp"` will have an 8dp margin on its left side so no other view (or the parent) will be closer than 8dp on that side.
+
+**Padding** relates to the space *inside* a View and is used similarly to margin: `padding` sets all four sides while `paddingTop`, `paddingStart`, `paddingBottom` and `paddingEnd` set their respective sides.
+
+In this example we can see how these TextViews look: the second TextView has 8dp of padding at its start, the fourth TextView has 8dp of margin at its start, and the last TextView has both. We can also see the content boxes surrounding each view so we see how padding and margin both affect a View.
+![View Margin and Padding](images/view_margin_padding.png)
+
+and the XML that generated the above screen:
+![View Margin and Padding XML](images/view_margin_padding_xml.png)
+
+#### Visibility
+
+Views also have a concept of whether they're visible or not. This can be useful if you want to include something on the screen (maybe some error banner or something similar) that you don't want to display initially.
+
+Visibility is controlled via the `android:visibility` attribute, and takes one of three values:
+- `visible` (default) will make the view visible and take up whatever space it needs (depending on layout width/height)
+- `invisible` will make the view invisible *but* it will still take up its allocated space (so there will just be empty space where the view *would* be)
+- `gone` will make the view completely gone as if it was never drawn; no space will be taken up by this view if it's in the gone state.
+
+In code we can call `view.setVisibility(int visibility)` with one of the three constants (`View.VISIBLE`, `View.INVISIBLE`, `View.GONE`) to accomplish the same thing.
+
+Typically you'll only concern yourself with `visible` and `gone`, but it's useful to know what they all do.
+
 ## `TextView`
 
 Let’s take our TextView from last time. We’ll talk about the three most common attributes you’ll set - text, text size, and text color
