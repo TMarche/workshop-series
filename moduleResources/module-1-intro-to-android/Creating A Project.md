@@ -2,16 +2,16 @@
 # Creating a Project
 
 ### Create a Project while another project is open
-![Create a Project while another project is open](create_project_open.png)
+![Create a Project while another project is open](images/create_project_open.png)
 
 ### Create a Project with no project open
-![Create a Project with no project open](create_no_project.png)
+![Create a Project with no project open](images/create_no_project.png)
 
 ### Create Project - First Screen (Create an Activity)
-![Create an activity](create_project_activity.png)
+![Create an activity](images/create_project_activity.png)
 
 ### Create Project - Configuration
-![Project configuration](project_configuration.png)
+![Project configuration](images/project_configuration.png)
 
 **Name** - The name of your application; this is what appears by default with your app's icon
 
@@ -33,15 +33,15 @@ Make sure the `Use androidx.* artifacts` box is checked
 
 There are two primary ways we can view our app - the Project view and Android view.  Project view is a more literal representation of directories and files while the Android view is a grouping of things like resources (the difference shows when you have different resources e.x. text for the US version and text for the French version).  For now we'll work in the Android view.
 
-![Project View](as_project_view.png)
+![Project View](images/as_project_view.png)
 
 ### Android View
 
-![Android View](as_android_view.png)
+![Android View](images/as_android_view.png)
 
 # Android Manifest
 
-![Android Manifest](android_manifest.png)
+![Android Manifest](images/android_manifest.png)
 
 # Activities
 
@@ -49,13 +49,13 @@ There are two primary ways we can view our app - the Project view and Android vi
 
 Create a new Activity using the Wizard by selecting **New** > **Activity** and then choosing from a list of preconfigured Activities (usually **Empty Activity** for me)
 
-![Activity Wizard](new_activity_wizard.png)
+![Activity Wizard](images/new_activity_wizard.png)
 
 ### Configuring our Activity
 
 Configure our Activity by giving it a name.  Usually we won't need to mess with **Package name** or **Source language**.  If we check the box for `Generate Layout File`, then a corresponding XML file is created. If we check the box for `Launcher Activity`, then some filters are added to our `AndroidManifest.xml` file.
 
-![Configure an Activity](create_activity.png)
+![Configure an Activity](images/create_activity.png)
 
 ### Activity Lifecycle
 
@@ -78,7 +78,7 @@ You can think of `onCreate` as when the activity is first created but isn’t vi
 We’ll normally link our layouts with our views (get references to all our text boxes, buttons, etc) in `onCreate`, link/unlink running services in `onResume`/`onPause`.
 
 
-![Activity Lifecycle](activity_lifecycle.png)
+![Activity Lifecycle](images/activity_lifecycle.png)
 
 # Resources
 
@@ -95,7 +95,7 @@ Strings can be found by default in strings.xml in the values folder.  This file 
 
 We can see the definition of `sample_text` here, and its use via `@string/sample_text` in the layout file
 
-![Strings file](strings.png)
+![Strings file](images/strings.png)
 
 ### `dimens.xml` - all our measurements
 
@@ -103,18 +103,18 @@ Dimensions are the measurements of our app - how big do we want the text size to
 
 We can see a sample definition here, with `sample_dimen` defined in `dimens.xml` and its usage in the layout file
 
-![Dimens file](dimens.png)
+![Dimens file](images/dimens.png)
 
 ### `colors.xml` - all our colors and color states
 
 Colors are a little weirder, but most of your colors will also be found in the values folder in colors.xml. The declaration syntax looks a lot like strings, except we use the word color.  Colors are declared using RGB (Red Green Blue) or ARGB (Alpha/transparency Red Green Blue), prefaced by a hashtag. If you omit the transparency it’s assumed to be completely opaque.  There’s also a color folder that we’ll ignore for now - it’s primarily for more complex scenarios (where you might want a button to have a different background or different transparency depending on whether you’re enabling or disabling clicks).
 
 #### The `colors.xml` file and how we define colors
-![Colors file](color_simple.png)
+![Colors file](images/color_simple.png)
 
 #### The `colors` folder and an example of a complex color. In this example, the color is `colorPrimary` if the item is selected, and `colorPrimaryDark` in any other case.
 
-![Colors folder](color_complex.png)
+![Colors folder](images/color_complex.png)
 
 ### `drawables` - pretty pictures
 
@@ -122,7 +122,7 @@ Drawables are basically just images we want to use in our app - commonly in the 
 
 Here we have an example of how we dropped a PNG into our drawable folder. Drawables are referenced with `@drawable/<name>`, so `sanic.png` becomes `@drawable/sanic`
 
-![Drawables folder](drawable.png)
+![Drawables folder](images/drawable.png)
 
 ### `layout` files - what our screens look like
 
@@ -135,10 +135,10 @@ Another incredibly important attribute (although technically not required) is `a
 We have two different ways to create our layouts - Design view and Text view.  The Text view is just that - a text (XML) representation of our layout, while the Design view shows us a render of the screen and allows for drag-and-drop of our Views.
 
 #### Design view
-![Layout Design view](layout_design.png)
+![Layout Design view](images/layout_design.png)
 
 #### Text view
-![Layout Text view](layout_text.png)
+![Layout Text view](images/layout_text.png)
 
 ### Common Layouts
 
@@ -150,7 +150,7 @@ Like the name suggests, LinearLayout lays things out linearly using the same ord
 
 All we did here was specify `android:orientation="vertical"` and then declare the text boxes in the order we want them
 
-![LinearLayout](linear_layout.png)
+![LinearLayout](images/linear_layout.png)
 
 #### RelativeLayout
 
@@ -158,7 +158,7 @@ You can use RelativeLayout to position something *relative* to something else.  
 
 To get our desired layout here, we specified `android:layout_below="@id/first_text_box"` to place the second text box below the first
 
-![RelativeLayout](relative_layout.png)
+![RelativeLayout](images/relative_layout.png)
 
 #### ConstraintLayout
 
@@ -172,13 +172,13 @@ For the second text box, we specify these values:
 `app:layout_constraintStart_toStartOf="@id/first_text_box"` to put the start of this text box aligned with the start of the first text box
 `app:layout_constraintTop_toBottomOf="@id/first_text_box"` to put the top of the second text box right below the bottom of the first text box
 
-![ConstraintLayout](constraint_layout.png)
+![ConstraintLayout](images/constraint_layout.png)
 
 ### Gradle
 
 Gradle is Android’s build system - it’s where you’ll declare your minimum, target and compile SDKs, specify libraries that you’re using and can configure a whole lot of other stuff for your build.  We won’t need to dive super far into Gradle yet, but just know that this block here (the dependencies block) is used to manage all your imported libraries and that this is where you’d put any new libraries you want to use.
 
-![Gradle](gradle.png)
+![Gradle](images/gradle.png)
 
 ### Debugging / Breakpoints
 
@@ -186,13 +186,13 @@ Gradle is Android’s build system - it’s where you’ll declare your minimum,
 
 To insert a breakpoint, we’ll click in the gutter (the blank space between the line number and the code on that line) over here on the line number we want to stop execution at. Here we're setting a breakpoint at `setContentView`
 
-![Set a breakpoint](breakpoint_set.png)
+![Set a breakpoint](images/breakpoint_set.png)
 
 #### Starting with a debugger attached
 
 We need to run our app on some device (real or emulator) and make sure it has a debugger attached.  We can do that by either attaching a debugger from the start (shown in the image below) or by attaching a debugger when the app is running (Attach Debugger to Android Process which is 3 buttons over from our Start with Debugger button).
 
-![Start with Debugger](start_with_debugger.png)
+![Start with Debugger](images/start_with_debugger.png)
 
 #### Hitting a breakpoint
 
@@ -200,4 +200,4 @@ When we hit this breakpoint, we can see the method call stack over here on the f
 
 You’ll notice a lot of arrow icons just above these windows - these can be used to incrementally go through your breakpoint, stepping over certain steps, into others, or out of others.  We can also click this little calculator (right above the Variables window in the screenshot) that will allow us to evaluate expressions based off of the state where our breakpoint is.
 
-![Breakpoint hit](breakpoint_hit.png)
+![Breakpoint hit](images/breakpoint_hit.png)
