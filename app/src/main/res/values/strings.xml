@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">project-sanic</string>
+    <string name="title">A Really Cool Title</string>
+    <string name="username_entry">Enter Username</string>
+    <string name="username_hint">Username</string>
+    <string name="password_entry">Enter Password</string>
+    <string name="password_hint">Password</string>
+    <string name="font_prompt">Preferred Font Size:</string>
+    <string name="font_small">Small font</string>
+    <string name="font_medium">Medium font</string>
+    <string name="font_large">Large font</string>
+    <string name="username_prompt">Save Username?</string>
+    <string name="password_prompt">Save Password?</string>
+    <string name="location_prompt">Share Location?</string>
 </resources>

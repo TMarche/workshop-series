@@ -4,60 +4,78 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+<!--  Title Field  -->
     <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="A Really Cool Title"
-            android:textSize="32sp"
+            android:layout_marginTop="@dimen/large"
+            android:text="@string/title"
+            android:textSize="@dimen/title"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             />
 
-
-    <EditText
-            android:id="@+id/name"
-            android:layout_width="wrap_content"
+<!--  Username Field  -->
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/username"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="Username"
-            android:imeOptions="actionSend"
-            android:inputType="text"
+            android:layout_marginTop="@dimen/small"
+            android:hint="@string/username_entry"
+            app:layout_constraintWidth_percent="0.7"
+            app:counterEnabled="true"
+            app:counterMaxLength="16"
+            app:errorEnabled="true"
+            app:hintEnabled="true"
             app:layout_constraintTop_toBottomOf="@id/title"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:textAlignment="center" />
+            app:layout_constraintRight_toRightOf="parent">
+        <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
+<!--  Password Field  -->
+    <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/password"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="Password"
-            android:imeOptions="actionSend"
-            android:inputType="text"
+            android:layout_marginTop="@dimen/small"
+            android:hint="@string/password_entry"
+            app:layout_constraintWidth_percent="0.7"
+            app:errorEnabled="true"
+            app:hintEnabled="true"
+            app:layout_constraintTop_toBottomOf="@id/username"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/name" />
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="#FF000000">
+        <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textPassword"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
             android:id="@+id/radio_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Preferred Font Size:"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/password"
-            />
+            android:text="@string/font_prompt"
+            android:textSize="@dimen/medium"
+            android:layout_marginTop="@dimen/large"
+            app:layout_constraintLeft_toRightOf="@id/radiogroup"
+            app:layout_constraintStart_toStartOf="@+id/radiogroup"
+            app:layout_constraintTop_toBottomOf="@id/password" />
 
     <RadioGroup
             android:id="@+id/radiogroup"
-            android:text="Preference"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:checkedButton="@+id/second_radiobutton"
-            app:layout_constraintStart_toStartOf="parent"
+            android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@id/radio_title"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -67,19 +85,26 @@
                 android:id="@+id/first_radiobutton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="First Radio" />
+                android:text="@string/font_small"
+                android:textSize="@dimen/small"
+                />
 
         <RadioButton
                 android:id="@+id/second_radiobutton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Second Radio" />
+                android:text="@string/font_medium"
+                android:textSize="@dimen/medium"
+                app:layout_constraintLeft_toRightOf="@id/first_radiobutton"
+                />
 
         <RadioButton
                 android:id="@+id/third_radiobutton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Third Radio" />
+                android:text="@string/font_large"
+                android:textSize="@dimen/large"
+                />
     </RadioGroup>
 
 
