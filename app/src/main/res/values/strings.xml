@@ -12,4 +12,5 @@
     <string name="username_prompt">Save Username?</string>
     <string name="password_prompt">Save Password?</string>
     <string name="location_prompt">Share Location?</string>
+    <string name="submit">Submit</string>
 </resources>

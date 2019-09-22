@@ -58,6 +58,7 @@
                 android:inputType="textPassword"/>
     </com.google.android.material.textfield.TextInputLayout>
 
+<!--  Font Selection  -->
     <TextView
             android:id="@+id/radio_title"
             android:layout_width="wrap_content"
@@ -107,14 +108,57 @@
                 />
     </RadioGroup>
 
+<!--  User/Password Save Checkboxes  -->
+    <CheckBox
+            android:layout_marginTop="@dimen/large"
+            android:text="@string/username_prompt"
+            android:id="@+id/save_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/radiogroup" />
 
+    <CheckBox
+            android:id="@+id/save_password"
+            android:text="@string/password_prompt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/save_user" />
+
+<!--  Location Toggle  -->
+    <Switch
+            android:id="@+id/share_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/location_prompt"
+            android:switchPadding="@dimen/small"
+            app:layout_constraintStart_toStartOf="@+id/radiogroup"
+            app:layout_constraintTop_toBottomOf="@id/save_password" />
+
+<!--  Submit Button. Writes a 'Toast' to the screen
+      the user's information. -->
+    <Button
+            android:id="@+id/submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/submit"
+            android:layout_margin="@dimen/medium"
+            app:layout_constraintTop_toBottomOf="@id/share_location"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintBottom_toTopOf="@id/image"
+            />
+
+<!--  Image  -->
     <ImageView
             android:id="@+id/image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/sanic"
             android:scaleType="centerCrop"
-            app:layout_constraintTop_toBottomOf="@id/radiogroup"
+            app:layout_constraintTop_toBottomOf="@id/submit"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
