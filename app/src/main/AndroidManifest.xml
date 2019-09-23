@@ -12,6 +12,14 @@
         <!-- We have to register our activity in the manifest
         We also need to specify it as the default launch activity
         -->
+        <activity android:name="com.willowtree.troy.project_sanic.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>
